@@ -7,10 +7,9 @@ import csv
 import sys
 
 # Model parameters
-years_to_look_back = 1
+years_to_look_back = 2
 from_year = 2000
 to_year   = 2010
-
 
 Row = namedtuple('Row', [
       'year'                                # 1, Year     
@@ -70,9 +69,7 @@ Row = namedtuple('Row', [
 #------------------------------------------------------------------------------
 
 columns_to_use = (
-      'games_played'                        # 7, Games played    
-    , 'games_played_at_home'                # 8, Games played at home  
-    , 'wins'                                # 9, Wins     
+      'wins'                                # 9, Wins     
     , 'losses'                              # 10, Losses     
     , 'runs'                                # 15, Runs scored    
     , 'at_bats'                             # 16, At bats    
@@ -136,15 +133,15 @@ def val(row, column):
 	except:
 		raise Exception("Can't convert '%s' (%s) to float" % (getattr(row, column), column))
 
-global league
-global division
-def scale(column, target_year, row, all_rows):
-	global league
-	global division
-	oldmin = oldmax = val(row,column)
-	league = row.league
-	division = row.division
-	for other in filter(by_division, all_rows):
+def scale(column, row, all_rows):
+
+	oldmax = oldmin = val(row, column)
+
+	for other in all_rows:
+		if other.year     != row.year    : continue
+		if other.league   != row.league  : continue
+		if other.division != row.division: continue
+
 		oldmin = min(oldmin, val(other, column))
 		oldmax = max(oldmax, val(other, column))
 
@@ -152,6 +149,11 @@ def scale(column, target_year, row, all_rows):
 	newmax = 0.999
 	newmin = 0.001
 	newrange = newmax - newmin
+
+	# Some stats don't exist prior to 2000.
+	if (oldrange == 0):
+		return newmin
+	
 
 	return newmin + ((val(row, column) - oldmin) * newrange)/oldrange
 
@@ -162,36 +164,24 @@ def scale(column, target_year, row, all_rows):
 #
 #------------------------------------------------------------------------------
 
-def input_columns(years_to_look_back, columns_to_use, row, all_rows):
-	# >>> range(2010,2013)
-	# [2010, 2011, 2012]
-	yr = int(row.year)
-	for target_year in range(yr - years_to_look_back + 1, yr + 1):
+def inputs(row, all_rows, full_hash):
+	# >>> range(2)
+	# [0, 1]
+	inputs = ()
+	for offset in range(years_to_look_back + 1):
+		key = row_to_key(row, -offset)
+		row1 = full_hash[key]
 		for column in columns_to_use:
-			s = "%5.4f" % (scale(column, target_year, row, all_rows),)
-			if s == None:
+			s = "%5.4f" % (scale(column, row1, all_rows),)
+			if not s:
 				raise Exception("None for '%s' in %s" % (column, row))
-			print s,
+			inputs += (s,)
+	return inputs
+
+def outputs(row, full_hash):
+	return division_winner_nextyear(row, full_hash)
 
  
-
-#------------------------------------------------------------------------------
-#
-#                                F I L T E R S 
-#
-#------------------------------------------------------------------------------
-def is_AL_east(row):
-	global league
-	global division
-	division = 'E'
-	league = 'AL'
-	return by_division(row)
-
-def by_year(row):
-	return int(row.year) >= from_year and int(row.year) <= to_year
-
-def by_division(row):
-	return row.league == league and row.division == division
 
 #------------------------------------------------------------------------------
 #
@@ -199,27 +189,35 @@ def by_division(row):
 #
 #------------------------------------------------------------------------------
 
-#
-# Train on all team statistics ...
-#
+def row_to_key(row, yearoffset = 0):
+	y = row.year
 
-#full_data_set  = map(Row._make, csv.reader(open("../dat/Teams.csv", "rb"))) 
-full_data_set  = map(Row._make, csv.reader(sys.stdin))
+	tid = row.teamID
+	tid_map = {
+		  'MIA': 'FLO'
+		, 'LAA': 'ANA'
+		, 'MON': 'WAS'
+	}
+	tid = tid_map.get(tid, tid)
 
-#
-# ... for relatively recent years.
-#
+	if (yearoffset):
+		y = str(int(y) + yearoffset)
+	return (y, tid)
 
-training_rows = filter(by_year, full_data_set)
+def rows_to_hash(rows):
+	rval = {}
+	for row in rows:
+		rval[row_to_key(row)] = row
+	return rval
 
-# 
-# Output the training model inputs (fann).  The The fann input format is:
-#
-#    line 1: <# training pairs> <# input columns> <# output columns>
-#
-#    The remaining lines come in pairs: 
-#         - one for one space-delimited input columns and 
-#         - one for the output columns
+def load_data(from_year, to_year):
+	full_data_set  = map(Row._make, csv.reader(sys.stdin))
+	training_rows = ()
+	for row in full_data_set:
+		if int(row.year) >= int(from_year) and int(row.year) <= int(to_year):
+			training_rows += (row,)
+	full_hash = rows_to_hash(full_data_set)
+	return (training_rows, full_data_set, full_hash)
 
 def division_winner(row):
 	if row.division_winner == 'Y':
@@ -229,16 +227,26 @@ def division_winner(row):
 	else:
 		raise Exception("Unknown division_winner value '%s' in %s" % (row.division_winner, row))
 
-print len(training_rows), len(columns_to_use) * years_to_look_back, 1
-for row in training_rows:
-	winner = division_winner(row)
-	print >> sys.stderr, "Processing %s %s %s %s: %s  ..." % (winner, row.league, row.division, row.year, row.name)
-	input_columns(years_to_look_back, columns_to_use, row, full_data_set)
-	print winner
+def division_winner_nextyear(row, full_hash):
+	key = row_to_key(row, 1)
+	nextyear = full_hash[key]
+	return division_winner(nextyear)
 
+# Output the training model inputs (fann).  The The fann input format is:
+#
+#    line 1: <# training pairs> <# input columns> <# output columns>
+#
+#    The remaining lines come in pairs: 
+#         - one for one space-delimited input columns and 
+#         - one for the output columns
 
-# 	input columns are all the stats for the team
-#       a single output column: 1 if the team finished first, 0 otherwise.
+if __name__ == '__main__':
+	training_rows, full_data_set, full_hash = load_data(from_year, to_year)
 
-
-
+	print len(training_rows), len(columns_to_use) * (years_to_look_back + 1), 1
+	for row in training_rows:
+		print >> sys.stderr, "Processing %s %s %s: %s  ..." % (row.league, row.division, row.year, row.name)
+		input_columns = inputs(row, full_data_set, full_hash)
+		output_columns = outputs(row, full_hash)
+		print " ".join(input_columns)
+		print " ".join(output_columns)

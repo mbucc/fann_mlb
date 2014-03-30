@@ -1,0 +1,30 @@
+AL-C 0:  0.0058 Cleveland Indians
+AL-C 0:  0.0176 Kansas City Royals
+AL-C 0:  0.0248 Chicago White Sox
+AL-C 0: -0.5647 Minnesota Twins
+AL-C 1: -0.4985 Detroit Tigers
+AL-E 0:  0.0063 Toronto Blue Jays
+AL-E 0:  0.0365 Tampa Bay Rays
+AL-E 0:  0.0474 Baltimore Orioles
+AL-E 0:  0.9812 New York Yankees
+AL-E 1: -0.0940 Boston Red Sox
+AL-W 0:  0.2925 Texas Rangers
+AL-W 0: -0.0025 Seattle Mariners
+AL-W 0: -0.0035 Los Angeles Angels of Anaheim
+AL-W 1:  0.0412 Oakland Athletics
+NL-C 0:  0.0295 Pittsburgh Pirates
+NL-C 0:  0.0499 Chicago Cubs
+NL-C 0:  0.2150 Cincinnati Reds
+NL-C 0: -0.0024 Houston Astros
+NL-C 0: -0.0095 Milwaukee Brewers
+NL-C 1:  0.0027 St. Louis Cardinals
+NL-E 0:  0.0000 New York Mets
+NL-E 0:  0.0001 Miami Marlins
+NL-E 0:  0.7261 Philadelphia Phillies
+NL-E 0: -0.0030 Washington Nationals
+NL-E 1:  0.0014 Atlanta Braves
+NL-W 0:  0.0022 San Diego Padres
+NL-W 0:  0.1843 Arizona Diamondbacks
+NL-W 0:  0.9994 San Francisco Giants
+NL-W 0: -0.5213 Colorado Rockies
+NL-W 1: -0.3855 Los Angeles Dodgers
