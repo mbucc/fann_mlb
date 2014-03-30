@@ -39,11 +39,18 @@ I suspect the network overtrains (it reaches very high accuracy
 pretty quickly) on the training set data.  Some possible next steps
 would be to use Python to script up an exploration of the parameter
 space:
+
         - input variables (probably can cut these down)
-        - layer configuration
+
+	- layer configuration 
+
+
         - how far back to train on
+
         - use player stats (big space)
 
+Also, review Andrew Ng's Coursera notes on variance vs. bias to
+find a better balance.
 
 FILES
 
