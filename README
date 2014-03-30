@@ -18,7 +18,7 @@ His reasoning was that there are so many changes from one season
 to the next that to make an accurate prediction you have to look
 at things like free-agent signings, average player age, and other
 such measures that are not represented in statistics that are at
-the team level.
+the team level from prior years.
 
         TO RUN:
 
@@ -28,29 +28,24 @@ the team level.
 
                 (3) make
 
-The version that runs tries to predict if a team will finish in
-first place or not using 31 statistics for each of the previous
-three years.  It trains a neural network on data from 2000 through
-2010, where the net has 93 input nodes, two hidden layers of 60 and
-30 nodes and one output node.  It's fully-connected with a bias
-node at each layer.
+This will train the net and generate predictions for 2011, 2012 and
+2013.  It uses 31 team statistics for each of the previous three
+years.  It trains a neural network on data based on ten-years of
+results (2000 through 2010.  The net has 93 input nodes (31 stats/year
+x three years), two hidden layers of 60 and 30 nodes and one output
+node.  It's fully-connected with a bias node at each layer.  I
+suspect the network overtrains.
 
-I suspect the network overtrains (it reaches very high accuracy
-pretty quickly) on the training set data.  Some possible next steps
-would be to use Python to script up an exploration of the parameter
-space:
+Some possible next steps:
 
-        - input variables (probably can cut these down)
+        (1) Get at player stats using roster data at the beginning
+            of the year.  Player age has got to be a win; look at
+            what happened to the Phillies and Yankees last year.
 
-	- layer configuration 
-
-
-        - how far back to train on
-
-        - use player stats (big space)
-
-Also, review Andrew Ng's Coursera notes on variance vs. bias to
-find a better balance.
+        (2) Figure out a way not to overtrain.  Review Andrew Ng's
+            Coursera classes on variance versus bias, and the metrics
+            he uses.  Maybe script up an exploration of model
+            parameter space and let it run over night.
 
 FILES
 
@@ -58,7 +53,7 @@ FILES
 
                 Formats data from Teams.csv into format expected by FANN.
 
-		Decides which metrics to use as inputs.
+                Decides which metrics to use as inputs.
 
                 Normalizes each metric to range from 0.001 to 0.999 by
                 division.
