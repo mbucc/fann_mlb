@@ -1,30 +1,30 @@
-AL-C 0: -0.0046 Cleveland Indians
-AL-C 0: -0.0059 Kansas City Royals
-AL-C 0: -0.0118 Chicago White Sox
-AL-C 0: -0.0183 Minnesota Twins
-AL-C 1:  0.9967 Detroit Tigers
-AL-E 0:  0.0011 Boston Red Sox
-AL-E 0:  0.0071 Tampa Bay Rays
-AL-E 0: -0.0014 Baltimore Orioles
-AL-E 0: -0.0061 Toronto Blue Jays
-AL-E 1:  0.9526 New York Yankees
-AL-W 0:  0.0065 Seattle Mariners
-AL-W 0:  0.0195 Oakland Athletics
-AL-W 0: -0.0269 Los Angeles Angels of Anaheim
-AL-W 1:  0.9895 Texas Rangers
-NL-C 0: -0.0041 Chicago Cubs
-NL-C 0: -0.0059 Houston Astros
-NL-C 0: -0.0059 Pittsburgh Pirates
-NL-C 0: -0.0079 St. Louis Cardinals
-NL-C 0: -0.0374 Cincinnati Reds
-NL-C 1:  0.9945 Milwaukee Brewers
-NL-E 0:  0.0007 New York Mets
-NL-E 0: -0.0000 Florida Marlins
-NL-E 0: -0.0043 Atlanta Braves
-NL-E 0: -0.0058 Washington Nationals
-NL-E 1:  0.9804 Philadelphia Phillies
-NL-W 0:  0.0028 San Diego Padres
-NL-W 0: -0.0032 Colorado Rockies
-NL-W 0: -0.0058 San Francisco Giants
-NL-W 0: -0.0195 Los Angeles Dodgers
-NL-W 1:  0.9904 Arizona Diamondbacks
+AL-C 0: -0.0119 Cleveland Indians
+AL-C 0: -0.0126 Kansas City Royals
+AL-C 0: -0.0214 Chicago White Sox
+AL-C 0: -0.0467 Minnesota Twins
+AL-C 1:  0.9742 Detroit Tigers
+AL-E 0: -0.0000 Boston Red Sox
+AL-E 0: -0.0005 Toronto Blue Jays
+AL-E 0: -0.0024 Baltimore Orioles
+AL-E 0: -0.0037 Tampa Bay Rays
+AL-E 1:  0.9525 New York Yankees
+AL-W 0:  0.0001 Los Angeles Angels of Anaheim
+AL-W 0:  0.0068 Oakland Athletics
+AL-W 0: -0.0135 Seattle Mariners
+AL-W 1:  0.8906 Texas Rangers
+NL-C 0:  0.0022 Pittsburgh Pirates
+NL-C 0:  0.0090 Houston Astros
+NL-C 0:  0.0095 Chicago Cubs
+NL-C 0: -0.0748 Cincinnati Reds
+NL-C 0: -0.1203 St. Louis Cardinals
+NL-C 1:  0.8623 Milwaukee Brewers
+NL-E 0:  0.0325 Florida Marlins
+NL-E 0:  0.0616 Washington Nationals
+NL-E 0:  0.0812 New York Mets
+NL-E 0: -0.0385 Atlanta Braves
+NL-E 1:  0.9693 Philadelphia Phillies
+NL-W 0: -0.0011 Colorado Rockies
+NL-W 0: -0.0053 San Diego Padres
+NL-W 0: -0.0456 San Francisco Giants
+NL-W 0: -0.0793 Los Angeles Dodgers
+NL-W 1:  0.9852 Arizona Diamondbacks

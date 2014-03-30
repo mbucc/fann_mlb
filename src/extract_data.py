@@ -192,6 +192,7 @@ def outputs(row, full_hash):
 def row_to_key(row, yearoffset = 0):
 	y = row.year
 
+	# When teams changed name, the teamID also changes.
 	tid = row.teamID
 	tid_map = {
 		  'MIA': 'FLO'
@@ -237,8 +238,8 @@ def division_winner_nextyear(row, full_hash):
 #    line 1: <# training pairs> <# input columns> <# output columns>
 #
 #    The remaining lines come in pairs: 
-#         - one for one space-delimited input columns and 
-#         - one for the output columns
+#         - space-delimited input columns and 
+#         - space-delimited output columns.
 
 if __name__ == '__main__':
 	training_rows, full_data_set, full_hash = load_data(from_year, to_year)

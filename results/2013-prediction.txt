@@ -1,30 +1,30 @@
-AL-C 0:  0.1378 Kansas City Royals
-AL-C 0:  0.2530 Minnesota Twins
-AL-C 0: -0.0043 Chicago White Sox
-AL-C 0: -0.0059 Cleveland Indians
-AL-C 1:  0.8161 Detroit Tigers
-AL-E 0:  0.0563 Toronto Blue Jays
+AL-C 0:  0.1092 Cleveland Indians
+AL-C 0:  0.1383 Kansas City Royals
+AL-C 0:  0.1550 Minnesota Twins
+AL-C 0: -0.8266 Chicago White Sox
+AL-C 1:  0.0606 Detroit Tigers
+AL-E 0:  0.2478 Toronto Blue Jays
+AL-E 0:  0.5226 Baltimore Orioles
 AL-E 0:  0.6205 Tampa Bay Rays
-AL-E 0:  0.9965 New York Yankees
-AL-E 0: -0.0029 Baltimore Orioles
-AL-E 1:  0.2239 Boston Red Sox
-AL-W 0:  0.3194 Seattle Mariners
-AL-W 0:  0.6972 Texas Rangers
-AL-W 0: -0.0058 Los Angeles Angels of Anaheim
-AL-W 1:  0.1139 Oakland Athletics
-NL-C 0:  0.1589 Cincinnati Reds
-NL-C 0:  0.2094 Pittsburgh Pirates
-NL-C 0:  0.6855 Milwaukee Brewers
-NL-C 0: -0.0002 Chicago Cubs
-NL-C 0: -0.0058 Houston Astros
-NL-C 1:  0.5203 St. Louis Cardinals
-NL-E 0:  0.0014 Washington Nationals
-NL-E 0:  0.9945 Philadelphia Phillies
-NL-E 0: -0.0037 Miami Marlins
-NL-E 0: -0.0058 New York Mets
-NL-E 1: -0.0664 Atlanta Braves
-NL-W 0:  0.1047 Arizona Diamondbacks
-NL-W 0:  0.8172 San Francisco Giants
-NL-W 0: -0.0054 Colorado Rockies
-NL-W 0: -0.0059 San Diego Padres
-NL-W 1: -0.0048 Los Angeles Dodgers
+AL-E 0:  0.9967 New York Yankees
+AL-E 1:  0.9306 Boston Red Sox
+AL-W 0:  0.3052 Texas Rangers
+AL-W 0:  0.5657 Los Angeles Angels of Anaheim
+AL-W 0: -0.6855 Seattle Mariners
+AL-W 1:  0.9687 Oakland Athletics
+NL-C 0:  0.1964 Chicago Cubs
+NL-C 0:  0.8575 Pittsburgh Pirates
+NL-C 0: -0.0487 Cincinnati Reds
+NL-C 0: -0.0502 Milwaukee Brewers
+NL-C 0: -0.4571 Houston Astros
+NL-C 1:  0.0517 St. Louis Cardinals
+NL-E 0:  0.0020 Miami Marlins
+NL-E 0:  0.0022 New York Mets
+NL-E 0: -0.0587 Philadelphia Phillies
+NL-E 0: -0.0720 Washington Nationals
+NL-E 1: -0.7037 Atlanta Braves
+NL-W 0:  0.1652 Arizona Diamondbacks
+NL-W 0:  0.9998 San Francisco Giants
+NL-W 0: -0.0820 Colorado Rockies
+NL-W 0: -0.5499 San Diego Padres
+NL-W 1:  0.4869 Los Angeles Dodgers

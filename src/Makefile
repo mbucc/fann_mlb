@@ -4,48 +4,52 @@ results: ../results/2013-prediction.txt \
 
 ../results/2013-prediction.txt: 2013 firstplace.net
 	./2013 | sort -n > t
-	mv t ../results/2013-prediction.txt 
+	mv t $@
 
 2013: 2013.c
 	gcc 2013.c -lfann -o 2013
 
 2013.c: oneyear.py ../dat/Teams.csv extract_data.py
 	tail -n +2 ../dat/Teams.csv | ./oneyear.py 2013 > t
-	mv t 2013.c
+	mv t $@
 
 ../results/2012-prediction.txt: 2012 firstplace.net
 	./2012 | sort -n > t
-	mv t ../results/2012-prediction.txt 
+	mv t $@
 
 2012: 2012.c
 	gcc 2012.c -lfann -o 2012
 
 2012.c: oneyear.py ../dat/Teams.csv extract_data.py
 	tail -n +2 ../dat/Teams.csv | ./oneyear.py 2012 > t
-	mv t 2012.c
+	mv t $@
 
 ../results/2011-prediction.txt: 2011 firstplace.net
 	./2011 | sort -n > t
-	mv t ../results/2011-prediction.txt 
+	mv t $@
 
 2011: 2011.c
 	gcc 2011.c -lfann -o 2011
 
 2011.c: oneyear.py ../dat/Teams.csv extract_data.py
 	tail -n +2 ../dat/Teams.csv | ./oneyear.py 2011 > t
-	mv t 2011.c
+	mv t $@
 
 firstplace.net: firstplace.dat firstplace
 	./firstplace
 
 firstplace.dat: ../dat/Teams.csv extract_data.py
 	tail -n +2 ../dat/Teams.csv | ./extract_data.py > t
-	mv t firstplace.dat
+	mv t $@
 
-../dat/Teams.csv: ../dat/lahman-csv_2014-02-14.tgz
-	(cd ../dat ; tar xf ../dat/lahman-csv_2014-02-14.tgz Teams.csv)
-	touch ../dat/lahman-csv_2014-02-14.tgz
+../dat/Teams.csv: ../dat/lahman-csv_2014-02-14.zip
+	(cd ../dat ; unzip -o $? Teams.csv)
+	touch $@
 
+../dat/lahman-csv_2014-02-14.zip:
+	curl -L http://seanlahman.com/files/database/lahman-csv_2014-02-14.zip > t
+	mv t $@
+ 
 firstplace: firstplace.c
 	gcc firstplace.c -lfann -o firstplace
 

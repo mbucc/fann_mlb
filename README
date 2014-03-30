@@ -1,3 +1,69 @@
 Sun Mar 30 08:34:43 EDT 2014
 
-Neural net to predict division winners in Major League Baseball..
+      ******************************************************
+
+        If you find this code useful, consider donating to
+        Sean Lahman, who created and maintains this most-
+        awesome dataset (it goes back to 1871).
+
+        http://seanlahman.com/support/
+
+      ******************************************************
+
+A weekend hack to see how well a neural net can predict division
+winners in Major League Baseball based solely on team statistics.
+
+As my baseball-fanatic son predicted, it didn't perform very well.
+His reasoning was that there are so many changes from one season
+to the next that to make an accurate prediction you have to look
+at things like free-agent signings, average player age, and other
+such measures that are not represented in statistics that are at
+the team level.
+
+        TO RUN:
+
+                (1) Install FANN from http://leenissen.dk/fann/wp/
+
+                (2) cd src
+
+                (3) make
+
+The version that runs tries to predict if a team will finish in
+first place or not using 31 statistics for each of the previous
+three years.  It trains a neural network on data from 2000 through
+2010, where the net has 93 input nodes, two hidden layers of 60 and
+30 nodes and one output node.  It's fully-connected with a bias
+node at each layer.
+
+I suspect the network overtrains (it reaches very high accuracy
+pretty quickly) on the training set data.  Some possible next steps
+would be to use Python to script up an exploration of the parameter
+space:
+        - input variables (probably can cut these down)
+        - layer configuration
+        - how far back to train on
+        - use player stats (big space)
+
+
+FILES
+
+        src/extract_data.py
+
+                Formats data from Teams.csv into format expected by FANN.
+
+		Decides which metrics to use as inputs.
+
+                Normalizes each metric to range from 0.001 to 0.999 by
+                division.
+
+        src/firstplace.c
+
+                Trains network.
+
+                Defines the network structure and how long to train for.
+
+        src/oneyear.py
+
+                Generates C code that runs prediction for each team.
+
+                Pass in the year that you want to predict.

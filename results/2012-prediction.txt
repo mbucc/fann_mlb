@@ -1,30 +1,30 @@
-AL-C 0:  0.0424 Chicago White Sox
-AL-C 0:  0.5803 Minnesota Twins
-AL-C 0:  0.6012 Kansas City Royals
-AL-C 0: -0.0058 Cleveland Indians
-AL-C 1: -0.4894 Detroit Tigers
-AL-E 0:  0.0116 Baltimore Orioles
-AL-E 0:  0.2752 Boston Red Sox
-AL-E 0:  0.8800 Tampa Bay Rays
-AL-E 0: -0.0037 Toronto Blue Jays
-AL-E 1:  0.9887 New York Yankees
-AL-W 0:  0.2555 Los Angeles Angels of Anaheim
-AL-W 0: -0.0059 Seattle Mariners
-AL-W 0: -0.5189 Texas Rangers
-AL-W 1: -0.0058 Oakland Athletics
-NL-C 0:  0.8505 Milwaukee Brewers
-NL-C 0:  0.9356 St. Louis Cardinals
-NL-C 0:  0.9957 Chicago Cubs
-NL-C 0: -0.0058 Houston Astros
-NL-C 0: -0.0059 Pittsburgh Pirates
-NL-C 1:  0.0536 Cincinnati Reds
-NL-E 0:  0.0406 Atlanta Braves
-NL-E 0:  0.0774 Florida Marlins
-NL-E 0:  0.9937 Philadelphia Phillies
-NL-E 0: -0.0023 New York Mets
-NL-E 1: -0.0053 Washington Nationals
-NL-W 0:  0.0743 San Diego Padres
-NL-W 0:  0.5275 Los Angeles Dodgers
-NL-W 0:  0.9181 Arizona Diamondbacks
-NL-W 0: -0.0004 Colorado Rockies
-NL-W 1:  0.1884 San Francisco Giants
+AL-C 0:  0.2006 Cleveland Indians
+AL-C 0: -0.4494 Kansas City Royals
+AL-C 0: -0.4967 Minnesota Twins
+AL-C 0: -0.9659 Chicago White Sox
+AL-C 1:  0.5299 Detroit Tigers
+AL-E 0:  0.2479 Toronto Blue Jays
+AL-E 0:  0.9624 Boston Red Sox
+AL-E 0:  0.9867 Tampa Bay Rays
+AL-E 0: -0.4204 Baltimore Orioles
+AL-E 1:  0.9279 New York Yankees
+AL-W 0:  0.6817 Seattle Mariners
+AL-W 0:  0.8198 Texas Rangers
+AL-W 0: -0.4317 Los Angeles Angels of Anaheim
+AL-W 1:  0.9017 Oakland Athletics
+NL-C 0:  0.1112 Pittsburgh Pirates
+NL-C 0:  0.3589 Milwaukee Brewers
+NL-C 0:  0.8923 Chicago Cubs
+NL-C 0:  0.9641 St. Louis Cardinals
+NL-C 0: -0.1455 Houston Astros
+NL-C 1:  0.6797 Cincinnati Reds
+NL-E 0:  0.6110 Philadelphia Phillies
+NL-E 0:  0.7197 New York Mets
+NL-E 0:  0.8718 Florida Marlins
+NL-E 0: -0.8435 Atlanta Braves
+NL-E 1: -0.0418 Washington Nationals
+NL-W 0:  0.2380 Colorado Rockies
+NL-W 0:  0.5194 San Diego Padres
+NL-W 0:  0.7170 Arizona Diamondbacks
+NL-W 0:  0.9107 Los Angeles Dodgers
+NL-W 1: -0.0677 San Francisco Giants
