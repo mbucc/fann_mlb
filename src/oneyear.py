@@ -5,8 +5,7 @@ import csv
 import sys
 
 years_to_look_back = 1
-from_year = 2012
-to_year   = 2012
+to_year = from_year = int(sys.argv[1])
 
 Row = namedtuple('Row', [
       'year'                                # 1, Year     
